@@ -2,10 +2,10 @@
   <div id="interactive-display">
     <div id="submission-form">
       <form v-on:submit="handleSubmit" method="post">
-        <label for="">Enter a savings amount: £</label>
-        <input type="number" step="0.01" v-model.number="amount">
-        <label for="">every</label>
-        <select v-model="frequency">
+        <label for="">Enter a savings amount: £ </label>
+        <input type="number" step="0.01" placeholder="0.00" v-model.number="amount" required>
+        <label for=""> every </label>
+        <select v-model="frequencyValue">
           <option v-for="period in this.frequencyArray" :value="period.value">{{period.text}}</option>
         </select>
 
@@ -13,7 +13,10 @@
       </form>
     </div>
     <div id="chart">
-      <chart />
+      <chart
+        type="ScatterChart"
+        :data="chartData"
+        :options="chartOptions" />
     </div>
   </div>
 </template>
@@ -23,20 +26,28 @@ import { GChart } from 'vue-google-charts'
 
 export default {
   name: 'interactive-display',
-  props: ['comparitives']
+  // props: ['comparitives'],
   components: {
     'chart': GChart
-  }
+  },
   data(){
     return {
       frequencyArray: [{text: "day", value: 1}, {text: "week", value: 7}, {text: "month", value: 30}, {text: "year", value: 365}],
-      amount: 0,
-      frequencyValue: ""
+      amount: null,
+      frequencyValue: "",
+      chartData: [],
+      chartOptions: {}
+    }
+  },
+  methods: {
+    handleSubmit: function(event){
+      event.preventDefault();
+      return null
     }
   },
   computed: {
-    calculatedSavings: {
-      let savings = this.amount * this.frequencyValue;
+    calculatedSavings() {
+      let savings = this.amount * this.frequencyValue
       return savings;
     }
   }
