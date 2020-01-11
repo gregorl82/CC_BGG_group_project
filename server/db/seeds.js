@@ -26,7 +26,7 @@ db.savings.insertOne(
       ],
 	    comparatives: [
         {name: "Cup of coffee", value: 2},
-        {name: "Tesla Model S", value: 77,770},
+        {name: "Tesla Model S", value: 77770},
         {name: "Bunch of bananas", value: 1},
         {name: "The CodeClan experience", value: 6250},
         {name: "Pint", value: 3.5}
