@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-
+    <title />
+    <main-content />
+    <side-bar />
   </div>
 </template>
 
@@ -8,6 +10,7 @@
 import Title from '@/components/Title.vue';
 import MainContent from '@/components/MainContent.vue';
 import SideBar from '@/components/SideBar.vue';
+import { eventBus } from './main.js';
 
 export default {
   name: 'app',
@@ -15,7 +18,12 @@ export default {
     return {
       topics: []
     }
-  }
+  },
+
+  mounted() {
+
+  },
+
   components: {
     'title': Title,
     'main-content': MainContent,
