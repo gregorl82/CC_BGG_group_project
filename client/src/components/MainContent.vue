@@ -1,7 +1,7 @@
 <template>
   <div id="main">
     <title :topic="topic" />
-    <SubTopic :subTopic="sub-topic" />
+    <sub-topic />
   </div>
 </template>
 
@@ -22,8 +22,8 @@ export default {
   },
 
   components: {
-    'topic': Topic,
-    'sub-topic': subTopic
+    'title': Title,
+    'sub-topic': SubTopic
   }
 }
 </script>
