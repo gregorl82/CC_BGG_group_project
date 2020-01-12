@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <title />
+    <title :topic="topic"/>
     <main-content />
-    <side-bar />
+    <side-bar :topics="topics"/>
   </div>
 </template>
 
