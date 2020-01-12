@@ -13,8 +13,9 @@ export default {
   name: 'main-content',
   data () {
     return {
-
-    }
+      topic: '',
+      subTopics: []
+    };
   },
 
   mounted() {
