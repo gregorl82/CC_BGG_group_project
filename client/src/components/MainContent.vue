@@ -1,7 +1,7 @@
 <template>
   <div id="main">
     <title :topic="topic" />
-    <sub-topic />
+    <sub-topic v-for="(subTopic, index) in subTopics" :key="index" :subTopic="sub-topic" />
   </div>
 </template>
 
