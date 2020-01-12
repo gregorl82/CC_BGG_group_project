@@ -1,16 +1,13 @@
 <template>
   <div id="app">
-    <title :topic="topic"/>
     <main-content />
     <side-bar :topics="topics"/>
   </div>
 </template>
 
 <script>
-import Title from '@/components/Title.vue';
 import MainContent from '@/components/MainContent.vue';
 import SideBar from '@/components/SideBar.vue';
-import { eventBus } from './main.js';
 
 export default {
   name: 'app',
@@ -25,7 +22,6 @@ export default {
   },
 
   components: {
-    'title': Title,
     'main-content': MainContent,
     'side-bar': SideBar
   }
