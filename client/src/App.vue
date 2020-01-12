@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <main-content />
+    <main-content :endpoint="endpoint"/>
     <side-bar :topics="topics"/>
   </div>
 </template>
@@ -8,17 +8,21 @@
 <script>
 import MainContent from '@/components/MainContent.vue';
 import SideBar from '@/components/SideBar.vue';
+import { eventBus } from '@/main.js';
 
 export default {
   name: 'app',
   data () {
     return {
-      topics: []
+      topics: [],
+      endpoint: 'Welcome'
     }
   },
 
   mounted() {
-
+    eventBus.$on('topic-clicked', (topic) => {
+      this.endpoint = topic;
+    })
   },
 
   components: {
