@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <title :topic="topic" />
+    <title :endpoint="endpoint" />
     <sub-topic v-for="(subtopic, index) in subtopics" :key="index" :subtopic="sub-topic" />
   </div>
 </template>
@@ -17,6 +17,7 @@ export default {
       subTopics: []
     };
   },
+  props: ["endpoint"],
 
   mounted() {
 
