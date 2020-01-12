@@ -45,5 +45,9 @@ db.credit.insertOne(
         "Factoid 3",
         "Factoid 4",
       ],
-	    comparatives: [{name: "", value: }]
+	    comparatives: [
+        {name: "sing Twinkle Twinkle, Little Star", value: .02},
+        {name: "travel to the moon with Neil", value: .3},
+        {name: "your lovely leather shoes decompose", value: 25}
+      ]
   });
