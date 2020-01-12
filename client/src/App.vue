@@ -11,8 +11,15 @@ import SideBar from '@/components/SideBar.vue';
 
 export default {
   name: 'app',
+  data () {
+    return {
+      topics: []
+    }
+  }
   components: {
-    
+    'title': Title,
+    'main-content': MainContent,
+    'side-bar': SideBar
   }
 }
 </script>
