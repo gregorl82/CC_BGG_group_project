@@ -1,6 +1,6 @@
 <template>
   <div id="title">
-    <h1>{{ topic }}</h1>
+    <h1>{{ endpoint }}</h1>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 
 export default {
   name: 'title',
-  props: ['topic']
+  props: ['endpoint']
 }
 </script>
 
