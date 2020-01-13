@@ -1,8 +1,8 @@
 <template lang="html">
   <div id="sub-topic">
     <h3>{{subtopic.heading}}</h3>
-    <interactive-display v-if="interactive" />
-    <p v-else>{{subtopic.text}}</p>
+    <interactive-display />
+    <p>{{subtopic.text}}</p>
   </div>
 </template>
 
