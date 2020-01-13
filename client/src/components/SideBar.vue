@@ -14,7 +14,7 @@ export default {
   props: ['topics'],
   methods: {
     handleSubmit(topic) {
-      eventBus.$emit('topic-clicked', topic)
+      eventBus.$emit('topic-clicked', topic.topicHeading)
     }
   }
 }
