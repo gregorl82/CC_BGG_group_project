@@ -2,6 +2,7 @@
   <div id="main">
     <topic-title :endpoint="endpoint" />
     <sub-topic v-for="(subtopic, index) in subtopics" :key="index" :subtopic="subtopic" />
+    <fact-box :factoids="factoids"/>
   </div>
 </template>
 
@@ -9,13 +10,15 @@
 import {eventBus} from '@/main.js'
 import TopicTitle from '@/components/TopicTitle.vue';
 import SubTopic from '@/components/SubTopic.vue';
+import FactBox from '@/components/FactBox.vue';
 
 export default {
   name: 'main-content',
   data () {
     return {
       topic: '',
-      subtopics: []
+      subtopics: [],
+      factoids: []
     };
   },
   props: ["endpoint"],
@@ -28,13 +31,15 @@ export default {
       .then(response => response.json())
       .then((data) => {
         this.subtopics = data[0].subtopics
+        this.factoids = data[0].factoids
       })
     });
   },
 
   components: {
     'topic-title': TopicTitle,
-    'sub-topic': SubTopic
+    'sub-topic': SubTopic,
+    'fact-box': FactBox
   }
 }
 </script>
