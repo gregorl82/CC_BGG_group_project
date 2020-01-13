@@ -50,7 +50,7 @@ db.credit.insertOne(
       {heading: "Can you afford to borrow money?",
       text: "Here are some costs to consider: <ul><li>Gas</li><li>Electricity</li><li>Council Tax</li><li>Water rates</li><li>TV licence</li><li>Mortgage or rent</li><li>Home and contents insurance</li><li>Telephone, mobile and internet service</li></ul><br/><br/>Of course, every household has different bills, so don’t treat this as a complete list.  Think about any additional costs you or your family might have to pay.  It’s a good idea to gather bank account and credit card statements from the last three months and record everything you spend over a period of a month or longer (as you might have some bills that are taken every six or twelve months).  Make sure you include everything you spend to get a true picture and add a bit extra to allow for inflation and any unexpected costs."},
       {heading: "Loan calculator",
-      text: "Use this calculator to see how much a loan will cost you or how quickly you can pay off your existing loans. Simply add a loan below to get started."}
+      text: "Use this calculator to see how much a loan will cost you or how quickly you can pay off your existing loans. Simply add a loan to get started!"}
       ],
 	    factoids: [
         "In July 2019, there were 61.9 million credit cards issued to UK residents, and 97.3 million debit cards issued. In other words, people are 57% more likely to own a debit card. The total number of cards issued has risen from 158.9 million in 2018 to 159.2 million in 2019",
