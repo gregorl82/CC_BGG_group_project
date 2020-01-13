@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import InteractiveDisplay from './InteractiveDisplay.vue'
+import InteractiveDisplay from './InteractiveDisplaySavings.vue'
 
 export default {
   name: 'sub-topic',
