@@ -9,6 +9,10 @@ db.topics.insertMany(
   {
     topicHeading: "Credit",
     subtopicHeadings: ["Sub topic 1", "Sub topic 2"]
+  },
+  {
+    topicHeading: "Budget",
+    subtopicHeadings: ["Sub topic 1", "Sub topic 2"]
   }
 ]);
 
