@@ -15,7 +15,8 @@ db.topics.insertMany(
 db.savings.insertOne(
   {
     subtopics: [
-      {heading: "Sub topic 1", text: "Descrption of Savings' sub topic 1 hehe"},
+      {heading: "Introduction",
+      text: "Descrption of Savings' sub topic 1 hehe <br /> fjeijdeow"},
       {heading: "Sub topic 2", text: "This is a description of Savings' sub topic 2 lolz"}
     ],
 	    factoids: [

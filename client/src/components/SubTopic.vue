@@ -2,7 +2,7 @@
   <div id="sub-topic">
     <h3>{{subtopic.heading}}</h3>
     <interactive-display />
-    <p>{{subtopic.text}}</p>
+    <p v-html="subtopic.text"></p>
   </div>
 </template>
 
