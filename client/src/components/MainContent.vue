@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <title :endpoint="endpoint" />
+    <topic-title :endpoint="endpoint" />
     <sub-topic v-for="(subtopic, index) in subtopics" :key="index" :subtopic="subtopic" />
   </div>
 </template>
