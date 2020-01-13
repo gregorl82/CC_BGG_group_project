@@ -1,17 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <main-content :endpoint="endpoint"/>
+    <side-bar :topics="topics"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainContent from '@/components/MainContent.vue';
+import SideBar from '@/components/SideBar.vue';
+import { eventBus } from '@/main.js';
 
 export default {
   name: 'app',
+  data () {
+    return {
+      topics: [],
+      endpoint: 'Welcome'
+    }
+  },
+
+  mounted() {
+    eventBus.$on('topic-clicked', (topic) => {
+      this.endpoint = topic;
+    })
+  },
+
   components: {
-    HelloWorld
+    'main-content': MainContent,
+    'side-bar': SideBar
   }
 }
 </script>
