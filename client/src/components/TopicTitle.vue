@@ -1,5 +1,5 @@
 <template>
-  <div id="title">
+  <div id="topic-title">
     <h1>{{ endpoint }}</h1>
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  name: 'title',
+  name: 'topic-title',
   props: ['endpoint']
 }
 </script>

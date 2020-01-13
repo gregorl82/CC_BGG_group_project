@@ -1,12 +1,12 @@
 <template>
   <div id="main">
     <title :endpoint="endpoint" />
-    <sub-topic v-for="(subtopic, index) in subtopics" :key="index" :subtopic="sub-topic" />
+    <sub-topic v-for="(subtopic, index) in subTopics" :key="index" :subtopic="sub-topic" />
   </div>
 </template>
 
 <script>
-import Title from '@/components/Title.vue';
+import TopicTitle from '@/components/TopicTitle.vue';
 import SubTopic from '@/components/SubTopic.vue';
 
 export default {
@@ -24,7 +24,7 @@ export default {
   },
 
   components: {
-    'title': Title,
+    'topic-title': TopicTitle,
     'sub-topic': SubTopic
   }
 }
