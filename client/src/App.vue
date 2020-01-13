@@ -9,7 +9,6 @@
 import MainContent from '@/components/MainContent.vue';
 import SideBar from '@/components/SideBar.vue';
 import { eventBus } from '@/main.js';
-
 export default {
   name: 'app',
   data () {
@@ -18,13 +17,11 @@ export default {
       endpoint: 'Welcome'
     }
   },
-
   mounted() {
     eventBus.$on('topic-clicked', (topic) => {
       this.endpoint = topic;
     })
   },
-
   components: {
     'main-content': MainContent,
     'side-bar': SideBar
