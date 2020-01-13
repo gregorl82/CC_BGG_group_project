@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import {eventBus} from '@/main.js'
 import TopicTitle from '@/components/TopicTitle.vue';
 import SubTopic from '@/components/SubTopic.vue';
 
@@ -20,7 +21,12 @@ export default {
   props: ["endpoint"],
 
   mounted() {
-
+    eventBus.$on('topic-clicked', (topic) => {
+      const topicLowerCase = topic.toLowerCase()
+      fetch(`http://localhost:3000/api/${topicLowerCase}/`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+    })
   },
 
   components: {

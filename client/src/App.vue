@@ -18,6 +18,10 @@ export default {
     }
   },
   mounted() {
+    fetch('http://localhost:3000/api/topics')
+    .then(response => response.json())
+    .then(topics => this.topics = topics)
+    
     eventBus.$on('topic-clicked', (topic) => {
       this.endpoint = topic;
     })
