@@ -22,6 +22,10 @@ MongoClient.connect('mongodb://localhost:27017')
   const creditCollection = db.collection('credit');
   const creditRouter = createRouter(creditCollection);
   app.use('/api/credit', creditRouter);
+
+  const budgetCollection = db.collection('budget');
+  const budgetRouter = createRouter(budgetCollection);
+  app.use('/api/budget', budgetRouter);
 });
 
 app.listen(3000, function () {
