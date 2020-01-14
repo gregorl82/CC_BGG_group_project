@@ -46,7 +46,7 @@ export default {
 
 <style>
 #main {
-  margin-left: 300px;
+  margin-left: 200px;
   padding: 0px 30px;
 }
 </style>

@@ -22,7 +22,7 @@ export default {
 <style lang="css" scoped>
 #topic-list {
   height: 100%;
-  width: 300px;
+  width: 200px;
   position: fixed;
 
   z-index: 1;
