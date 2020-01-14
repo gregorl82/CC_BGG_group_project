@@ -80,6 +80,22 @@
           <input type="number" name="regular-savings" step="0.01" min="0" v-model.number="regularSavings" required>
         </p>
 
+        <h4>Family and friends</h4>
+        <p>
+          <label for="childcare">Childcare: £ </label>
+          <input type="number" name="childcare" step="0.01" min="0" v-model.number="childcare" required>
+        </p>
+
+        <p>
+          <label for="school-costs">School costs: £ </label>
+          <input type="number" name="school-costs" step="0.01" min="0" v-model.number="schoolCosts" required>
+        </p>
+
+        <p>
+          <label for="pets">Pets: £ </label>
+          <input type="number" name="pets" step="0.01" min="0" v-model.number="pets" required>
+        </p>
+
         <button type="submit">Submit Info</button>
       </form>
     </div>
@@ -117,6 +133,9 @@ export default {
       creditCard: 0,
       studentLoan: 0,
       regularSavings: 0,
+      childcare: 0,
+      schoolCosts: 0,
+      pets: 0,
       chartData: [
         ['Category', 'Spend'],
         ['Household bills', 0],
@@ -146,6 +165,9 @@ export default {
 
       let financeInsuranceTotal = this.lifeInsurance + this.creditCard + this.studentLoan + this.regularSavings;
       newChartData.push(['Finance & insurance', financeInsuranceTotal]);
+
+      let familyTotal = this.childcare + this.schoolCosts + this.pets;
+      newChartData.push(['Family & friends', familyTotal]);
 
       this.chartData = newChartData;
 
