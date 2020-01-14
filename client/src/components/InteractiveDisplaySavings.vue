@@ -52,7 +52,20 @@ export default {
   methods: {
     handleSubmit: function(event){
       event.preventDefault();
-      return null
+      const newChartData = [['Month', 'Amount']]
+      const newTicks = []
+      let month = 0;
+      let totalSavings = 0;
+      const interestMultiplier = (1 + (this.interestRate/12/100));
+      while (month <= this.numberOfMonths) {
+        totalSavings *= interestMultiplier;
+        newChartData.push([month, totalSavings]);
+        newTicks.push(month);
+        month++;
+        totalSavings += this.amount;
+      }
+      this.chartData = newChartData;
+      this.chartOptions.hAxis.ticks = newTicks;
     }
   }
 }
