@@ -75,7 +75,10 @@ export default {
       this.chartData = newChartData;
       this.chartOptions.hAxis.ticks = newTicks;
 
-      this.summaryText = `After saving £${this.amount.toFixed(2)} for ${this.numberOfMonths} months(s), you will have £${totalSavings.toFixed(2)}.`
+      const principal = this.numberOfMonths * this.amount;
+      const interest = totalSavings - principal;
+
+      this.summaryText = `After saving £${this.amount.toFixed(2)} for ${this.numberOfMonths} months(s) you will have saved £${principal.toFixed(2)} and earned £${interest.toFixed(2)} interest, a total of £${totalSavings.toFixed(2)}`
     }
   }
 }
