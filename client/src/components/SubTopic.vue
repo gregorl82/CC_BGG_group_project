@@ -60,26 +60,36 @@ export default {
 
 <style lang="css" scoped>
 .accordion {
-    max-width: 500px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 20px;
 }
-
 .accordion-header {
+    max-width: 800px;
     cursor: pointer;
+    color: white;
+    background-color: #067EB2;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    border: 3px solid #1A2F4C;
 }
-
+.accordion-header-text {
+    display:flex;
+    justify-content: left;
+    padding-top: 15px;
+}
 .accordion-body   {
-    padding: 0;
+    padding: 20px;
     max-height: 200em;
     overflow: hidden;
     transition: 0.3s ease all;
+    border: .5px solid #1A2F4C;
 }
-
 .is-closed .accordion-body {
     max-height: 0;
 }
-
 .body-content {
     padding: 20px;
 }
