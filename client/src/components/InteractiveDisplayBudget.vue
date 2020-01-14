@@ -59,6 +59,27 @@
           <input type="number" name="hairdressing" step="0.01" min="0" v-model.number="hairdressing" required>
         </p>
 
+        <h4>Finance and insurance</h4>
+        <p>
+          <label for="life-insurance">Life insurance: £ </label>
+          <input type="number" name="life-insurance" step="0.01" min="0" v-model.number="lifeInsurance" required>
+        </p>
+
+        <p>
+          <label for="credit-card">Credit card repayments: £ </label>
+          <input type="number" name="credit-card" step="0.01" min="0" v-model.number="creditCard" required>
+        </p>
+
+        <p>
+          <label for="student-loan">Student loan repayments: £ </label>
+          <input type="number" name="student-loan" step="0.01" min="0" v-model.number="studentLoan" required>
+        </p>
+
+        <p>
+          <label for="regular-savings">Regular savings: £ </label>
+          <input type="number" name="regular-savings" step="0.01" min="0" v-model.number="regularSavings" required>
+        </p>
+
         <button type="submit">Submit Info</button>
       </form>
     </div>
@@ -92,6 +113,10 @@ export default {
       clothing: 0,
       dental: 0,
       hairdressing: 0,
+      lifeInsurance: 0,
+      creditCard: 0,
+      studentLoan: 0,
+      regularSavings: 0,
       chartData: [
         ['Category', 'Spend'],
         ['Household bills', 0],
@@ -111,13 +136,16 @@ export default {
   methods: {
     handleSubmit: function(event){
       event.preventDefault();
-      const newChartData = [['Category', 'Spend']];
+      const newChartData = [['Category', 'Spending']];
 
       let householdBillTotal = this.mortgageRent + this.councilTax + this.utilityBills + this.homeInsurance + this.travelCosts;
       newChartData.push(['Household bills', householdBillTotal]);
 
       let livingCostTotal = this.groceries + this.eatingOut + this.clothing + this.dental + this.hairdressing;
       newChartData.push(['Living costs', livingCostTotal]);
+
+      let financeInsuranceTotal = this.lifeInsurance + this.creditCard + this.studentLoan + this.regularSavings;
+      newChartData.push(['Finance & insurance', financeInsuranceTotal]);
 
       this.chartData = newChartData;
 
