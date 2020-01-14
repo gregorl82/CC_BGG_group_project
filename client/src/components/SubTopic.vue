@@ -22,12 +22,18 @@ export default {
   name: 'sub-topic',
   data() {
     return {
-      isOpen: true
+      isOpen: false
     }
   },
   methods: {
     toggleAccordion() {
       this.isOpen = !this.isOpen
+    //   if (this.isOpen) {
+    //     this.isOpen = true
+    //   } else {
+    //     this.isOpen = false
+    //   }
+    // }
     }
   },
   computed: {
