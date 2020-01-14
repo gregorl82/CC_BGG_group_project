@@ -1,16 +1,49 @@
 <template lang="html">
   <div id="sub-topic">
-    <h3 id="subtopic-heading">{{subtopic.heading}}</h3>
-    <interactive-display id="int-display" />
-    <p v-html="subtopic.text" id="subtopic-text"></p>
+    <article class="accordion" :class="accordionClasses">
+      <div class="accordion-header" @click="toggleAccordion">
+        {{subtopic.heading}}
+      </div>
+      <div class="accordion-body">
+        <div class="body-content">
+          <interactive-display />
+          <p v-html="subtopic.text">{{subtopic.text}}</p>
+        </div>
+      </div>
+    </article>
   </div>
 </template>
 
 <script>
+import Sidebar from './SideBar.vue'
 import InteractiveDisplay from './InteractiveDisplaySavings.vue'
+import {eventBus} from '../main.js'
 
 export default {
   name: 'sub-topic',
+  data() {
+    return {
+      isOpen: false
+    }
+  },
+  methods: {
+    toggleAccordion() {
+      this.isOpen = !this.isOpen;
+      eventBus.$on('topic-clicked', (isOpen) => this.isOpen = false);
+      }
+    },
+  mounted() {
+
+  },
+  computed: {
+    accordionClasses() {
+      return {
+        'is-closed': !this.isOpen,
+        'is-primary': this.isOpen,
+        'is-dark': !this.isOpen
+      }
+    }
+  },
   props: ['subtopic'],
   components: {
     'interactive-display': InteractiveDisplay
@@ -19,22 +52,28 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  #sub-topic {
-    margin: 0px 20px 0px 20px;
-    background-color: white;
-  }
+.accordion {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-  #subtopic-heading {
-    color: white;
-    background-color: #1A2F4C;
-    padding: 5px;
-  }
+.accordion-header {
+    cursor: pointer;
+}
 
-  #int-display {
-    
-  }
+.accordion-body   {
+    padding: 0;
+    max-height: 200em;
+    overflow: hidden;
+    transition: 0.3s ease all;
+}
 
-  #subtopic-text {
+.is-closed .accordion-body {
+    max-height: 0;
+}
 
-  }
+.body-content {
+    padding: 20px;
+}
 </style>
