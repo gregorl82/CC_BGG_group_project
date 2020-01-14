@@ -2,7 +2,7 @@
   <div id="main">
     <topic-title :endpoint="endpoint" />
     <sub-topic v-for="(subtopic, index) in subtopics" :key="index" :subtopic="subtopic" />
-    <fact-box :factoids="factoids"/>
+    <fact-box :factoids="factoids"  />
   </div>
 </template>
 
@@ -30,7 +30,6 @@ export default {
       fetch(`http://localhost:3000/api/${topicLowerCase}/`)
       .then(response => response.json())
       .then((data) => {
-        this.topic = data[0].topic
         this.subtopics = data[0].subtopics
         this.factoids = data[0].factoids
       })

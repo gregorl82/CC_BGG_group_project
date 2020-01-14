@@ -35,7 +35,6 @@ export default {
     'chart': GChart
   },
   data(){
-    condition: false
     return {
       amount: 0,
       numberOfMonths: 0,
@@ -45,6 +44,7 @@ export default {
         ['Month', 'Amount'],
         [6 , 0]
       ],
+      props: ['subtopic'],
       chartOptions: {
         title: 'Savings projection',
         legend: 'none',

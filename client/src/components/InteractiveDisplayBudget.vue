@@ -162,7 +162,6 @@ export default {
     'chart': GChart
   },
   data(){
-    condition: false
     return {
       monthlyBudget: 0,
       mortgageRent: 0,
@@ -194,6 +193,7 @@ export default {
         ['Category', 'Spend'],
         ['Category', 1]
       ],
+      props: ['subtopic'],
       chartOptions: {
         title: 'Budget Summary',
         is3D: true,

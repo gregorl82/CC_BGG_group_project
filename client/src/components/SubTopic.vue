@@ -5,9 +5,9 @@
         {{subtopic.heading}}
       </div>
       <div class="accordion-body">
-          <interactive-display />
-          <interactive-display-credit />
-          <interactive-display-budget />
+          <interactive-display v-if="subtopic.heading == 'Savings calculator'"></interactive-display>
+          <interactive-display-credit v-if="subtopic.heading == 'Loan calculator'"></interactive-display-credit>
+          <interactive-display-budget v-if="subtopic.heading == 'Budget calculator'"></interactive-display-budget>
         <div class="body-text">
           <p v-html="subtopic.text">{{subtopic.text}}</p>
         </div>
@@ -31,7 +31,6 @@ export default {
       isOpen: false
     }
   },
-  props: "index",
   methods: {
     toggleAccordion() {
       this.isOpen = !this.isOpen;
