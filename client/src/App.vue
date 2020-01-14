@@ -35,11 +35,12 @@ export default {
 
 <style>
 #app {
-  font-family: Helvetica, sans-serif;
+  font-family: Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 10px;
+  background-color: ;
 }
 </style>
