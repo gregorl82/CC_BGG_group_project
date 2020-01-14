@@ -20,6 +20,9 @@
         :data="chartData"
         :options="chartOptions" />
     </div>
+    <div v-if="summaryText" id="summary-text">
+      <h3 v-html="summaryText"></h3>
+    </div>
   </div>
 </template>
 
@@ -36,6 +39,7 @@ export default {
       amount: 0,
       numberOfMonths: 0,
       interestRate: 0,
+      summaryText: "",
       chartData: [
         ['Month', 'Amount'],
         [6 , 0]
@@ -58,7 +62,7 @@ export default {
       let month = 0;
       let totalSavings = 0;
       const interestMultiplier = (1 + (this.interestRate/12/100));
-      while (month <= this.numberOfMonths) {
+      while (month < this.numberOfMonths) {
         totalSavings *= interestMultiplier;
         let tooltip = `Month: ${month} Total savings: £${totalSavings.toFixed(2)}`
         newChartData.push([month, totalSavings, tooltip]);
@@ -66,9 +70,12 @@ export default {
         month++;
         totalSavings += this.amount;
       }
-
+      newChartData.push([month, totalSavings, `Month: ${month} Total savings: £${totalSavings.toFixed(2)}`]),
+      newTicks.push(month);
       this.chartData = newChartData;
       this.chartOptions.hAxis.ticks = newTicks;
+
+      this.summaryText = `After saving £${this.amount.toFixed(2)} for ${this.numberOfMonths} months(s), you will have £${totalSavings.toFixed(2)}.`
     }
   }
 }
