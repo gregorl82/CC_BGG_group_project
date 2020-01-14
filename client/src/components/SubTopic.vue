@@ -6,6 +6,8 @@
       </div>
       <div class="accordion-body">
           <interactive-display />
+          <interactive-display-credit />
+          <interactive-display-budget />
         <div class="body-text">
           <p v-html="subtopic.text">{{subtopic.text}}</p>
         </div>
@@ -18,7 +20,6 @@
 import Sidebar from './SideBar.vue'
 import InteractiveDisplayBudget from './InteractiveDisplayBudget.vue';
 import InteractiveDisplayCredit from './InteractiveDisplayCredit.vue';
-import InteractiveDisplaySavings from './InteractiveDisplaySavings.vue';
 import InteractiveDisplay from './InteractiveDisplaySavings.vue';
 
 import {eventBus} from '../main.js'
@@ -51,7 +52,9 @@ export default {
   },
   props: ['subtopic'],
   components: {
-    'interactive-display': InteractiveDisplay
+    'interactive-display': InteractiveDisplay,
+    'interactive-display-credit': InteractiveDisplayCredit,
+    'interactive-display-budget': InteractiveDisplayBudget
   }
 }
 </script>

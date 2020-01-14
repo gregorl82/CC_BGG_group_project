@@ -35,6 +35,7 @@ export default {
     'chart': GChart
   },
   data(){
+    condition: false
     return {
       amount: 0,
       numberOfMonths: 0,

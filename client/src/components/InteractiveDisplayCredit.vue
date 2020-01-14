@@ -34,6 +34,7 @@ export default {
     'chart': GChart
   },
   data(){
+    condition: false
     return {
       balance: 0,
       apr: 0,

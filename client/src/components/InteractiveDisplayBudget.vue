@@ -162,6 +162,7 @@ export default {
     'chart': GChart
   },
   data(){
+    condition: false
     return {
       monthlyBudget: 0,
       mortgageRent: 0,
