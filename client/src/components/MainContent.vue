@@ -35,10 +35,6 @@ export default {
         this.factoids = data[0].factoids
       })
     });
-
-    eventBus.$on('toggle-accordion', (subtopics) => {
-      console.log(subtopics);
-    })
   },
 
   components: {
