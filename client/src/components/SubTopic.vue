@@ -28,12 +28,10 @@ export default {
   },
   methods: {
     toggleAccordion() {
-      this.isOpen = !this.isOpen
-      eventBus.$on('topic-clicked', (isOpen) => {
-        this.isOpen = !this.isOpen
-      })
-    }
-  },
+      this.isOpen = !this.isOpen;
+      eventBus.$on('topic-clicked', (isOpen) => this.isOpen = false);
+      }
+    },
   mounted() {
 
   },
