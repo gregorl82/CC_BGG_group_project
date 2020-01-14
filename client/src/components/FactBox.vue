@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id="fact-box">
+  <div v-if="getRandomFact !== undefined" id="fact-box">
     <h3 id="fact-heading">Did you know?</h3>
     <p v-html="getRandomFact" id="fact-text"></p>
   </div>

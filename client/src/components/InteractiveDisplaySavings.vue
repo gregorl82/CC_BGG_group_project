@@ -44,6 +44,7 @@ export default {
         ['Month', 'Amount'],
         [6 , 0]
       ],
+      props: ['subtopic'],
       chartOptions: {
         title: 'Savings projection',
         legend: 'none',

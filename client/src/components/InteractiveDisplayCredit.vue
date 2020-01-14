@@ -44,6 +44,7 @@ export default {
         [0,     0],
         [12,    0]
       ],
+      props: ['subtopic'],
       chartOptions: {
         title: 'Credit Card repayments',
         hAxis: {title: 'Month', minValue: 0, maxValue: 12},

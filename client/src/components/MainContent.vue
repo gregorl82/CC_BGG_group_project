@@ -2,7 +2,7 @@
   <div id="main">
     <topic-title :endpoint="endpoint" />
     <sub-topic v-for="(subtopic, index) in subtopics" :key="index" :subtopic="subtopic" />
-    <fact-box :factoids="factoids"/>
+    <fact-box :factoids="factoids" />
   </div>
 </template>
 

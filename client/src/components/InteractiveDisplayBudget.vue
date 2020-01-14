@@ -193,6 +193,7 @@ export default {
         ['Category', 'Spend'],
         ['Category', 1]
       ],
+      props: ['subtopic'],
       chartOptions: {
         title: 'Budget Summary',
         is3D: true,
