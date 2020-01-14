@@ -28,11 +28,6 @@
           <input type="number" name="insurance" step="0.01" min="0" v-model.number="homeInsurance" required>
         </p>
 
-        <p>
-          <label for="travel-costs">Transport/car costs: £ </label>
-          <input type="number" name="travel-costs" step="0.01" min="0" v-model.number="travelCosts" required>
-        </p>
-
         <h4>Living costs</h4>
         <p>
           <label for="groceries">Groceries: £ </label>
@@ -96,6 +91,17 @@
           <input type="number" name="pets" step="0.01" min="0" v-model.number="pets" required>
         </p>
 
+        <h4>Travel</h4>
+        <p>
+          <label for="car-costs">Car costs: £ </label>
+          <input type="number" name="car-costs" step="0.01" min="0" v-model.number="carCosts" required>
+        </p>
+
+        <p>
+          <label for="public-transport">Public transport: £ </label>
+          <input type="number" name="public-transport" step="0.01" min="0" v-model.number="publicTransport" required>
+        </p>
+
         <button type="submit">Submit Info</button>
       </form>
     </div>
@@ -123,7 +129,6 @@ export default {
       councilTax: 0,
       utilityBills: 0,
       homeInsurance: 0,
-      travelCosts: 0,
       groceries: 0,
       eatingOut: 0,
       clothing: 0,
@@ -136,6 +141,8 @@ export default {
       childcare: 0,
       schoolCosts: 0,
       pets: 0,
+      carCosts: 0,
+      publicTransport: 0,
       chartData: [
         ['Category', 'Spend'],
         ['Household bills', 0],
@@ -157,7 +164,7 @@ export default {
       event.preventDefault();
       const newChartData = [['Category', 'Spending']];
 
-      let householdBillTotal = this.mortgageRent + this.councilTax + this.utilityBills + this.homeInsurance + this.travelCosts;
+      let householdBillTotal = this.mortgageRent + this.councilTax + this.utilityBills + this.homeInsurance;
       newChartData.push(['Household bills', householdBillTotal]);
 
       let livingCostTotal = this.groceries + this.eatingOut + this.clothing + this.dental + this.hairdressing;
@@ -168,6 +175,9 @@ export default {
 
       let familyTotal = this.childcare + this.schoolCosts + this.pets;
       newChartData.push(['Family & friends', familyTotal]);
+
+      let travelCostTotal = this.carCosts + this.publicTransport;
+      newChartData.push(['Travel', travelCostTotal]);
 
       this.chartData = newChartData;
 
