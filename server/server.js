@@ -26,6 +26,14 @@ MongoClient.connect('mongodb://localhost:27017')
   const budgetCollection = db.collection('budget');
   const budgetRouter = createRouter(budgetCollection);
   app.use('/api/budget', budgetRouter);
+
+  const pensionCollection = db.collection('pension');
+  const pensionRouter = createRouter(pensionCollection);
+  app.use('/api/pension', pensionRouter);
+
+  const travelCollection = db.collection('travel');
+  const travelRouter = createRouter(travelCollection);
+  app.use('/api/travel', travelRouter);
 });
 
 app.listen(3000, function () {
