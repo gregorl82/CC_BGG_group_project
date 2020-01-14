@@ -14,12 +14,17 @@ export default {
 
 <style>
 #topic-title {
-  height: 200px;
   width: 100%;
-  background-color: #FFFFFF;
+  height: 100px;
+  position: inherit;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: white;
+  background-color: #1A2F4C;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid slategray;
 }
 </style>

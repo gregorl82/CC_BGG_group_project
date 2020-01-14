@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <topic-title :endpoint="endpoint" />
+    <topic-title :endpoint="endpoint"/>
     <sub-topic v-for="(subtopic, index) in subtopics" :key="index" :subtopic="subtopic" />
     <fact-box :factoids="factoids"/>
   </div>
@@ -47,6 +47,7 @@ export default {
 <style>
 #main {
   margin-left: 200px;
-  padding: 0px 30px;
+  padding: 0px 0px 0px 0px;
 }
+
 </style>

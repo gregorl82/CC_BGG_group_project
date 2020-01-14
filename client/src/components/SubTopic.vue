@@ -1,8 +1,8 @@
 <template lang="html">
   <div id="sub-topic">
-    <h3>{{subtopic.heading}}</h3>
-    <interactive-display />
-    <p v-html="subtopic.text"></p>
+    <h3 id="subtopic-heading">{{subtopic.heading}}</h3>
+    <interactive-display id="int-display" />
+    <p v-html="subtopic.text" id="subtopic-text"></p>
   </div>
 </template>
 
@@ -19,4 +19,22 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  #sub-topic {
+    margin: 0px 20px 0px 20px;
+    background-color: white;
+  }
+
+  #subtopic-heading {
+    color: white;
+    background-color: #1A2F4C;
+    padding: 5px;
+  }
+
+  #int-display {
+    
+  }
+
+  #subtopic-text {
+
+  }
 </style>
