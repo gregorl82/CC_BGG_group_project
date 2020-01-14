@@ -1,6 +1,7 @@
 <template>
   <div id="main">
     <topic-title :endpoint="endpoint" />
+
     <sub-topic v-for="(subtopic, index) in subtopics" :key="index" :subtopic="subtopic" />
     <fact-box :factoids="factoids"/>
   </div>
@@ -34,6 +35,10 @@ export default {
         this.factoids = data[0].factoids
       })
     });
+
+    eventBus.$on('toggle-accordion', (subtopics) => {
+      console.log(subtopics);
+    })
   },
 
   components: {
