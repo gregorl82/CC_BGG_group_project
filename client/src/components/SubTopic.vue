@@ -7,7 +7,7 @@
       <div class="accordion-body">
         <div class="body-content">
           <interactive-display />
-          <p v-html="subtopic.text"></p>
+          <p v-html="subtopic.text">{{subtopic.text}}</p>
         </div>
       </div>
     </article>
@@ -59,7 +59,7 @@ export default {
 
 .accordion-body   {
     padding: 0;
-    max-height: 10em;
+    max-height: 200em;
     overflow: hidden;
     transition: 0.3s ease all;
 }
