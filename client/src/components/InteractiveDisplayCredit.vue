@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="interactive-display-credit">
     <div id="submission-form">
-      <h2>Credit Card Example</h2>
+      <h2>Credit Card Repayment Calculator</h2>
       <form v-on:submit="handleSubmit">
         <label for="balance">Enter credit card balance: £ </label>
         <input type="number" name="balance" step="0.01" v-model.number="balance" required>
@@ -21,7 +21,7 @@
       :data="chartData"
       :options="chartOptions"/>
     </div>
-    <h3 v-if="resultMessage" v-html="resultMessage"></h3>
+    <h2 v-if="resultMessage" v-html="resultMessage"></h2>
   </div>
 </template>
 
@@ -56,17 +56,29 @@ export default {
   methods: {
     handleSubmit: function(event){
       event.preventDefault();
-      this.chartData = [['Month','Balance']]
+
+      const newChartData = [['Month','Balance', {role: 'tooltip'}]]
+      const newTicks = []
+      const monthlyInterest = this.apr/12;
+
       let month = 0;
-      let balance = this.balance;
-      while (balance >= 0) {
-        this.chartData.push([month, balance]);
+      let remainingBalance = this.balance;
+      while (remainingBalance > 0) {
+        const tooltip = `Month: ${month} Remaining balance: £${remainingBalance.toFixed(2)}`
+        newChartData.push([month, remainingBalance, tooltip]);
+        newTicks.push(month)
         month++;
-        balance -= this.repayment * (1 + (this.apr/100));
+        remainingBalance = (remainingBalance * ((monthlyInterest/100) + 1)) - this.repayment
       }
+      newChartData.push([month, 0, `Month: ${month} Remaining balance: £0.00`]);
+      newTicks.push(month);
+
+      this.chartData = newChartData;
+      this.chartOptions.hAxis.ticks = newTicks;
+
       const years = Math.floor(month / 12);
       const months = (month - (years * 12)) % 12;
-      const message = `It will take ${years} year(s) and ${months} month(s) to pay your balance`;
+      const message = `It will take ${years} year(s) and ${months} month(s) to pay off your balance`;
       this.resultMessage = message;
     }
   }
