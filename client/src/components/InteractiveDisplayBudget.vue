@@ -2,10 +2,15 @@
   <div id="interactive-display-budget">
     <div id="submission-form">
       <h2>Monthly Budget Calculator</h2>
+      <p>Use this handy calculator to work out how much money you have left after each month.</p>
       <form v-on:submit="handleSubmit">
-        <label for="balance">Enter a monthly budget amount: £ </label>
-        <input type="number" name="balance" step="0.01" min="0" v-model.number="monthlyBudget" required>
+        <h2>Income</h2>
+        <h3>
+          <label for="balance">Monthly income: £ </label>
+          <input type="number" name="balance" step="0.01" min="0" v-model.number="monthlyBudget" required>
+        </h3>
 
+        <h2>Expenses</h2>
         <h4>Enter your monthly spending for each category:</h4>
         <h4>Household bills</h4>
         <p>
@@ -142,6 +147,9 @@
       :data="chartData"
       :options="chartOptions"/>
     </div>
+    <div id="budget-advice" v-if="adviceText">
+      <h3 v-html="adviceText"></h3>
+    </div>
   </div>
 </template>
 
@@ -180,46 +188,65 @@ export default {
       pub: 0,
       magazines: 0,
       holidays: 0,
+      adviceText: "",
       chartData: [
         ['Category', 'Spend'],
-        ['Household bills', 0],
-        ['Living costs', 0],
-        ['Finance & insurance', 0],
-        ['Family & friends', 0],
-        ['Travel', 0],
-        ['Leisure', 0]
+        ['Category', 1]
       ],
       chartOptions: {
         title: 'Budget Summary',
         is3D: true,
-        height: '400'
+        height: '400',
+        legend: 'none'
       }
     }
   },
   methods: {
     handleSubmit: function(event){
       event.preventDefault();
-      const newChartData = [['Category', 'Spending']];
+      const newChartData = [['Category', 'Spending', {role: 'tooltip'}]];
 
       let householdBillTotal = this.mortgageRent + this.councilTax + this.utilityBills + this.homeInsurance;
-      newChartData.push(['Household bills', householdBillTotal]);
+      let tooltip = `Category: Household bills, Total spending: £${householdBillTotal.toFixed(2)}`
+      newChartData.push(['Household bills', householdBillTotal, tooltip]);
 
       let livingCostTotal = this.groceries + this.takeaways + this.clothing + this.dental + this.hairdressing;
-      newChartData.push(['Living costs', livingCostTotal]);
+      tooltip = `Category: Living costs, Total spending: £${livingCostTotal.toFixed(2)}`
+      newChartData.push(['Living costs', livingCostTotal, tooltip]);
 
       let financeInsuranceTotal = this.lifeInsurance + this.creditCard + this.studentLoan + this.regularSavings;
-      newChartData.push(['Finance & insurance', financeInsuranceTotal]);
+      tooltip = `Category: Finance & insurance, Total spending: £${financeInsuranceTotal.toFixed(2)}`
+      newChartData.push(['Finance & insurance', financeInsuranceTotal, tooltip]);
 
       let familyTotal = this.childcare + this.schoolCosts + this.pets;
-      newChartData.push(['Family & friends', familyTotal]);
+      tooltip = `Category: Family & friends, Total spending: £${familyTotal.toFixed(2)}`
+      newChartData.push(['Family & friends', familyTotal, tooltip]);
 
       let travelCostTotal = this.carCosts + this.publicTransport;
-      newChartData.push(['Travel', travelCostTotal]);
+      tooltip = `Category: Travel, Total spending: £${travelCostTotal.toFixed(2)}`
+      newChartData.push(['Travel', travelCostTotal, tooltip]);
 
       let leisureCostTotal = this.cinemaTrips + this.booksMusicGames + this.eatingOut + this.pub + this.magazines + this.holidays;
-      newChartData.push(['Leisure', leisureCostTotal]);
+      tooltip = `Category: Leisure, Total spending: £${leisureCostTotal.toFixed(2)}`
+      newChartData.push(['Leisure', leisureCostTotal, tooltip]);
 
       this.chartData = newChartData;
+      this.chartOptions.legend = 'right';
+
+      const totalSpending = householdBillTotal + livingCostTotal + financeInsuranceTotal + familyTotal + travelCostTotal + leisureCostTotal;
+      const upperLimit = 0.05 * this.monthlyBudget;
+      const lowerLimit = -1 * upperLimit
+      const budgetDifference = this.monthlyBudget - totalSpending;
+
+      if (budgetDifference < lowerLimit) {
+        this.adviceText = "You are currently spending more than you earn. Take a closer look through your spending for areas where you can cut back."
+      } else if (budgetDifference > upperLimit) {
+        this.adviceText = "You have a good chunk of money left over at the end of each month; think about putting this money into a savings account if you are not already doing so."
+      } else {
+        this.adviceText = "You are living within your means, but even small cutbacks in your spending will help you with unexpected costs."
+      }
+
+
     }
   }
 }
