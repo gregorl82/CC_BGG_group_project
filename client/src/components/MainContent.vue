@@ -28,7 +28,7 @@ export default {
     eventBus.$on('topic-clicked', (topic) => {
       this.topic = topic
       const topicLowerCase = topic.toLowerCase()
-      fetch(`http://localhost:300/api/${topicLowerCase}/`)
+      fetch(`http://localhost:3000/api/${topicLowerCase}/`)
       .then(response => response.json())
       .then((data) => {
         this.subtopics = data[0].subtopics
