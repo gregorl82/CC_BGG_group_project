@@ -52,18 +52,21 @@ export default {
   methods: {
     handleSubmit: function(event){
       event.preventDefault();
-      const newChartData = [['Month', 'Amount']]
+      const newChartData = [['Month', 'Amount', {role: 'tooltip'}]]
       const newTicks = []
+
       let month = 0;
       let totalSavings = 0;
       const interestMultiplier = (1 + (this.interestRate/12/100));
       while (month <= this.numberOfMonths) {
         totalSavings *= interestMultiplier;
-        newChartData.push([month, totalSavings]);
+        let tooltip = `Month: ${month} Total savings: £${totalSavings.toFixed(2)}`
+        newChartData.push([month, totalSavings, tooltip]);
         newTicks.push(month);
         month++;
         totalSavings += this.amount;
       }
+
       this.chartData = newChartData;
       this.chartOptions.hAxis.ticks = newTicks;
     }
