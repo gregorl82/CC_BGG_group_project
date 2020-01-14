@@ -16,7 +16,11 @@
 
 <script>
 import Sidebar from './SideBar.vue'
-import InteractiveDisplay from './InteractiveDisplaySavings.vue'
+import InteractiveDisplayBudget from './InteractiveDisplayBudget.vue';
+import InteractiveDisplayCredit from './InteractiveDisplayCredit.vue';
+import InteractiveDisplaySavings from './InteractiveDisplaySavings.vue';
+import InteractiveDisplay from './InteractiveDisplaySavings.vue';
+
 import {eventBus} from '../main.js'
 
 export default {
