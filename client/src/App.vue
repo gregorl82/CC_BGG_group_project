@@ -21,7 +21,7 @@ export default {
     fetch('http://localhost:3000/api/topics')
     .then(response => response.json())
     .then(topics => this.topics = topics)
-    
+
     eventBus.$on('topic-clicked', (topic) => {
       this.endpoint = topic;
     })
@@ -35,11 +35,11 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 </style>
