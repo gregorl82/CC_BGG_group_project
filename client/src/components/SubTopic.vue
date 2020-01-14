@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import Sidebar from './SideBar.vue'
 import InteractiveDisplay from './InteractiveDisplaySavings.vue'
 import {eventBus} from '../main.js'
 
@@ -22,13 +23,17 @@ export default {
   name: 'sub-topic',
   data() {
     return {
-      isOpen: true
+      isOpen: false
     }
   },
   methods: {
     toggleAccordion() {
-      this.isOpen = !this.isOpen
-    }
+      this.isOpen = !this.isOpen;
+      eventBus.$on('topic-clicked', (isOpen) => this.isOpen = false);
+      }
+    },
+  mounted() {
+
   },
   computed: {
     accordionClasses() {
