@@ -29,13 +29,34 @@
         </p>
 
         <p>
+          <label for="travel-costs">Transport/car costs: £ </label>
+          <input type="number" name="travel-costs" step="0.01" min="0" v-model.number="travelCosts" required>
+        </p>
+
+        <h4>Living costs</h4>
+        <p>
           <label for="groceries">Groceries: £ </label>
           <input type="number" name="groceries" step="0.01" min="0" v-model.number="groceries" required>
         </p>
 
         <p>
-          <label for="travel-costs">Transport/car costs: £ </label>
-          <input type="number" name="travel-costs" step="0.01" min="0" v-model.number="travelCosts" required>
+          <label for="eating-out">Takeaways/eating out: £ </label>
+          <input type="number" name="eating-out" step="0.01" min="0" v-model.number="eatingOut" required>
+        </p>
+
+        <p>
+          <label for="clothing">Clothes and shoes: £ </label>
+          <input type="number" name="clothing" step="0.01" min="0" v-model.number="clothing" required>
+        </p>
+
+        <p>
+          <label for="dental">Dental costs: £ </label>
+          <input type="number" name="dental" step="0.01" min="0" v-model.number="dental" required>
+        </p>
+
+        <p>
+          <label for="hairdressing">Hairdressing: £ </label>
+          <input type="number" name="hairdressing" step="0.01" min="0" v-model.number="hairdressing" required>
         </p>
 
         <button type="submit">Submit Info</button>
@@ -65,9 +86,12 @@ export default {
       councilTax: 0,
       utilityBills: 0,
       homeInsurance: 0,
-      groceries: 0,
       travelCosts: 0,
-      householdBillTotal: 0,
+      groceries: 0,
+      eatingOut: 0,
+      clothing: 0,
+      dental: 0,
+      hairdressing: 0,
       chartData: [
         ['Category', 'Spend'],
         ['Household bills', 0],
@@ -88,9 +112,15 @@ export default {
     handleSubmit: function(event){
       event.preventDefault();
       const newChartData = [['Category', 'Spend']];
-      this.householdBillTotal = this.mortgageRent + this.councilTax + this.utilityBills + this.homeInsurance + this.groceries + this.travelCosts;
-      newChartData.push(['Household bills', this.householdBillTotal]);
+
+      let householdBillTotal = this.mortgageRent + this.councilTax + this.utilityBills + this.homeInsurance + this.travelCosts;
+      newChartData.push(['Household bills', householdBillTotal]);
+
+      let livingCostTotal = this.groceries + this.eatingOut + this.clothing + this.dental + this.hairdressing;
+      newChartData.push(['Living costs', livingCostTotal]);
+
       this.chartData = newChartData;
+
     }
   }
 }
