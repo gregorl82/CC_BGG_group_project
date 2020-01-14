@@ -35,8 +35,8 @@
         </p>
 
         <p>
-          <label for="eating-out">Takeaways/eating out: £ </label>
-          <input type="number" name="eating-out" step="0.01" min="0" v-model.number="eatingOut" required>
+          <label for="takeaways">Takeaways: £ </label>
+          <input type="number" name="takeaways" step="0.01" min="0" v-model.number="takeaways" required>
         </p>
 
         <p>
@@ -102,6 +102,37 @@
           <input type="number" name="public-transport" step="0.01" min="0" v-model.number="publicTransport" required>
         </p>
 
+        <h4>Leisure</h4>
+        <p>
+          <label for="cinema-trips">Cinema trips: £ </label>
+          <input type="number" name="cinema-trips" step="0.01" min="0" v-model.number="cinemaTrips" required>
+        </p>
+
+        <p>
+          <label for="books-music-games">Books, music and games: £ </label>
+          <input type="number" name="books-music-games" step="0.01" min="0" v-model.number="booksMusicGames" required>
+        </p>
+
+        <p>
+          <label for="eating-out">Eating out: £ </label>
+          <input type="number" name="eating-out" step="0.01" min="0" v-model.number="eatingOut" required>
+        </p>
+
+        <p>
+          <label for="pub-social">Pub/socialising: £ </label>
+          <input type="number" name="pub-social" step="0.01" min="0" v-model.number="pub" required>
+        </p>
+
+        <p>
+          <label for="magazines">Newspapers/magazines: £ </label>
+          <input type="number" name="magazines" step="0.01" min="0" v-model.number="magazines" required>
+        </p>
+
+        <p>
+          <label for="holidays">Holidays: £ </label>
+          <input type="number" name="holidays" step="0.01" min="0" v-model.number="holidays" required>
+        </p>
+
         <button type="submit">Submit Info</button>
       </form>
     </div>
@@ -130,7 +161,7 @@ export default {
       utilityBills: 0,
       homeInsurance: 0,
       groceries: 0,
-      eatingOut: 0,
+      takeaways: 0,
       clothing: 0,
       dental: 0,
       hairdressing: 0,
@@ -143,6 +174,12 @@ export default {
       pets: 0,
       carCosts: 0,
       publicTransport: 0,
+      cinemaTrips: 0,
+      booksMusicGames: 0,
+      eatingOut: 0,
+      pub: 0,
+      magazines: 0,
+      holidays: 0,
       chartData: [
         ['Category', 'Spend'],
         ['Household bills', 0],
@@ -167,7 +204,7 @@ export default {
       let householdBillTotal = this.mortgageRent + this.councilTax + this.utilityBills + this.homeInsurance;
       newChartData.push(['Household bills', householdBillTotal]);
 
-      let livingCostTotal = this.groceries + this.eatingOut + this.clothing + this.dental + this.hairdressing;
+      let livingCostTotal = this.groceries + this.takeaways + this.clothing + this.dental + this.hairdressing;
       newChartData.push(['Living costs', livingCostTotal]);
 
       let financeInsuranceTotal = this.lifeInsurance + this.creditCard + this.studentLoan + this.regularSavings;
@@ -179,8 +216,10 @@ export default {
       let travelCostTotal = this.carCosts + this.publicTransport;
       newChartData.push(['Travel', travelCostTotal]);
 
-      this.chartData = newChartData;
+      let leisureCostTotal = this.cinemaTrips + this.booksMusicGames + this.eatingOut + this.pub + this.magazines + this.holidays;
+      newChartData.push(['Leisure', leisureCostTotal]);
 
+      this.chartData = newChartData;
     }
   }
 }
