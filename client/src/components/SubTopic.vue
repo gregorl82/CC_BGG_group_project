@@ -5,8 +5,8 @@
         {{subtopic.heading}}
       </div>
       <div class="accordion-body">
-        <div class="body-content">
           <interactive-display />
+        <div class="body-text">
           <p v-html="subtopic.text">{{subtopic.text}}</p>
         </div>
       </div>
@@ -26,6 +26,7 @@ export default {
       isOpen: false
     }
   },
+  props: "index",
   methods: {
     toggleAccordion() {
       this.isOpen = !this.isOpen;
