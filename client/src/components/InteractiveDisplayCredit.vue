@@ -2,15 +2,17 @@
   <div id="interactive-display-credit">
     <div id="submission-form">
       <form v-on:submit="handleSubmit">
-        <label for="balance">Enter credit card balance: £ </label>
-        <input type="number" name="balance" step="0.01" v-model.number="balance" required>
+        <p>
+          <label for="balance">Enter credit card balance: £ </label>
+          <input type="number" name="balance" step="0.01" v-model.number="balance" required>
 
-        <label for="apr">Enter the card APR: </label>
-        <input type="number" name="apr" step="0.1" v-model.number="apr" required>
-
-        <label for="repayment">Enter the monthly repayment amount: £ </label>
-        <input type="number" name="repayment" step="0.01" v-model.number="repayment" required>
-
+          <label for="apr">Enter the card APR: </label>
+          <input type="number" name="apr" step="0.1" v-model.number="apr" required>
+        </p>
+        <p>
+          <label for="repayment">Enter the monthly repayment amount: £ </label>
+          <input type="number" name="repayment" step="0.01" v-model.number="repayment" required>
+        </p>
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -93,7 +95,7 @@ export default {
   margin-top: 20px;
 }
 
-#result-message {
+#result-message, #submission-form {
   text-align: center;
 }
 
