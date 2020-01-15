@@ -15,7 +15,7 @@ db.topics.insertMany(
     topicHeading: "Travel"
   },
   {
-    topicHeading: "Pension"
+    topicHeading: "Pensions"
   }
 ]);
 

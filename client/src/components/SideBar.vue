@@ -22,9 +22,8 @@ export default {
 <style lang="css" scoped>
 #topic-list {
   height: 100%;
-  width: 200px;
+  width: 220px;
   position: fixed;
-
   z-index: 1;
   top: 0;
   left: 0;
@@ -33,19 +32,20 @@ export default {
   overflow-y: hidden;
   padding: 10px 8px 6px 0px;
   text-decoration: none;
+  text-transform: uppercase;
   font-size: 25px;
   color: white;
 }
 
 #logo {
-  padding: 20px 0px 50px 3px;
-  
+  padding: 10px 0px 50px 3px;
+
 }
 
 #side-topic {
   display: flex;
   width: 100%;
-  padding: 3px 10px;
+  padding: 0px 3px 0px 10px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   background-color: ;

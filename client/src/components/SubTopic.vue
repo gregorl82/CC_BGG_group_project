@@ -2,7 +2,7 @@
   <div id="sub-topic">
     <article class="accordion" :class="accordionClasses">
       <div class="accordion-header" @click="toggleAccordion">
-        {{subtopic.heading}}
+        {{ subtopic.heading }}
       </div>
       <div class="accordion-body">
           <interactive-display v-if="subtopic.heading == 'Savings calculator'"></interactive-display>
@@ -60,28 +60,23 @@ export default {
 
 <style lang="css" scoped>
 .accordion {
-    max-width: 800px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
 }
 .accordion-header {
-    max-width: 800px;
+    width: 1000px;
+    height: 40px;
     cursor: pointer;
     color: white;
-    background-color: #067EB2;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    border: 3px solid #1A2F4C;
+    background-color: #1A2F4C;
+    border-bottom: 3px solid #1A2F4C;
 }
-.accordion-header-text {
-    display:flex;
-    justify-content: left;
-    padding-top: 15px;
+.body-text {
+
 }
 .accordion-body   {
-    padding: 20px;
     max-height: 200em;
     overflow: hidden;
     transition: 0.3s ease all;

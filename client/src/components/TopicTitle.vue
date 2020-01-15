@@ -1,6 +1,6 @@
 <template>
   <div id="topic-title">
-    <h1>{{ endpoint }}</h1>
+    <h1 id="topic-text">{{ endpoint }}</h1>
   </div>
 </template>
 
@@ -22,9 +22,14 @@ export default {
   right: 0;
   left: 0;
   color: white;
-  background-color: #1A2F4C;
+  background-color: #067EB2;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-transform: uppercase;
+}
+
+#topic-text {
+
 }
 </style>
