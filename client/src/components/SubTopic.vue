@@ -2,7 +2,7 @@
   <div id="sub-topic">
     <article class="accordion" :class="accordionClasses">
       <div class="accordion-header" @click="toggleAccordion">
-        {{subtopic.heading}}
+        <div class="header-text">{{ subtopic.heading }}</div>
       </div>
       <div class="accordion-body">
           <interactive-display v-if="subtopic.heading == 'Savings calculator'"></interactive-display>
@@ -60,37 +60,37 @@ export default {
 
 <style lang="css" scoped>
 .accordion {
-    max-width: 800px;
+    width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 20px;
+    margin-top: 20px;
+    transition: 0.4s ease all;
 }
 .accordion-header {
-    max-width: 800px;
-    cursor: pointer;
+    width: 1100px;
+    height: 40px;
     color: white;
-    background-color: #067EB2;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    border: 3px solid #1A2F4C;
+    background-color: #1A2F4C;
 }
-.accordion-header-text {
-    display:flex;
-    justify-content: left;
-    padding-top: 15px;
+.active, .accordion-header:hover {
+  background-color: #4290C9;
+}
+
+.is-primary .accordion-header{
+  background-color: #4290C9;
+}
+
+.header-text {
+  padding: 8px;
+  font-size: 20px;
 }
 .accordion-body   {
-    padding: 20px;
     max-height: 200em;
     overflow: hidden;
-    transition: 0.3s ease all;
     border: .5px solid #1A2F4C;
+    padding: 0px 10px 0px 10px;
 }
 .is-closed .accordion-body {
     max-height: 0;
-}
-.body-content {
-    padding: 20px;
 }
 </style>

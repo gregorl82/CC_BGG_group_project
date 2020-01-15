@@ -15,7 +15,7 @@ db.topics.insertMany(
     topicHeading: "Travel"
   },
   {
-    topicHeading: "Pension"
+    topicHeading: "Pensions"
   }
 ]);
 
@@ -66,9 +66,9 @@ db.budget.insertOne(
       text: "Enter all of your spending values across different areas for the month, and your monthly earnings, and we'll show you how much you're spending in each area of life as well as how well you're sticking to your budget!"}
     ],
       factoids: [
-        "Did you know? Around £4.2billion of housing benefit was unclaimed last year.",
-        "Did you know? The average monthly water bill is £32!",
-        "Did you know? The average unused mobile phone data allowance is 3.4Gb"
+        "Around £4.2billion of housing benefit was unclaimed last year.",
+        "The average monthly water bill is £32!",
+        "The average unused mobile phone data allowance is 3.4Gb"
       ]
     });
 

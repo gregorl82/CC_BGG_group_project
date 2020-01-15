@@ -1,7 +1,8 @@
 <template lang="html">
   <div id="topic-list">
       <img src="bbc_logo.svg" width="200" id="logo">
-      <ul v-for="topic in topics" @click="handleSubmit(topic)" id="side-topic">{{ topic.topicHeading }}</ul>
+      <h3 id="subtitle">FINANCE</h3>
+      <ul v-for="topic in topics" @click="handleSubmit(topic)" :class="toggleSelected" id="side-topic">{{ topic.topicHeading }}</ul>
   </div>
 </template>
 
@@ -10,10 +11,21 @@ import {eventBus} from '@/main.js'
 
 export default {
   name: 'sidebar',
+  data() {
+    return {
+      selected: false
+    }
+  },
   props: ['topics'],
   methods: {
     handleSubmit(topic) {
       eventBus.$emit('topic-clicked', topic.topicHeading)
+      }
+  },
+  computed: {
+    toggleSelected() {
+      this.selected = !this.selected;
+      eventBus.$on('topic-clicked', (selected) => this.selected = true);
     }
   }
 }
@@ -22,9 +34,8 @@ export default {
 <style lang="css" scoped>
 #topic-list {
   height: 100%;
-  width: 200px;
+  width: 220px;
   position: fixed;
-
   z-index: 1;
   top: 0;
   left: 0;
@@ -33,30 +44,35 @@ export default {
   overflow-y: hidden;
   padding: 10px 8px 6px 0px;
   text-decoration: none;
+  text-transform: uppercase;
   font-size: 25px;
   color: white;
 }
 
 #logo {
-  padding: 20px 0px 50px 3px;
-  
+  background-color: white;
+  border: 5px solid white;
+  margin: 0px 0px 50px 10px
+}
+
+#subtitle {
+  margin: -42px 0px 0px 38px;
 }
 
 #side-topic {
-  display: flex;
   width: 100%;
-  padding: 3px 10px;
+  height: 35px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
-  background-color: ;
+  background-color: #1A2F4C;
 }
 
 #side-topic:hover {
   background: #4290C9;
 }
 
-#side-topic:active {
-  background: #4570AA;
+ {
+  background: #4290C9;
 }
 
 </style>
