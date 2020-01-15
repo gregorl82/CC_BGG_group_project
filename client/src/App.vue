@@ -2,7 +2,7 @@
   <div id="app">
     <main-content :endpoint="endpoint"/>
     <side-bar :topics="topics"/>
-    <div id="welcome-container">
+    <div id="welcome-container" v-if="endpoint === 'Welcome'">
       <ul id="welcome-text">
         Welcome to the finance app. Please select a topic to begin.
       </ul>
