@@ -2,6 +2,11 @@
   <div id="app">
     <main-content :endpoint="endpoint"/>
     <side-bar :topics="topics"/>
+    <div id="welcome-container">
+      <ul id="welcome-text">
+        Welcome to the finance app. Please select a topic to begin.
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -42,5 +47,16 @@ export default {
   color: #2c3e50;
   margin-top: 10px;
   background-color: ;
+}
+
+#welcome-container {
+  max-width: 800px;
+  height: 400px;
+  margin-top: 20px;
+  margin-left: 400px;
+}
+
+#welcome-text {
+  text-align: center;
 }
 </style>
