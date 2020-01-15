@@ -1,7 +1,6 @@
 <template lang="html">
   <div id="interactive-display-credit">
     <div id="submission-form">
-      <h2>Credit Card Repayment Calculator</h2>
       <form v-on:submit="handleSubmit">
         <label for="balance">Enter credit card balance: £ </label>
         <input type="number" name="balance" step="0.01" v-model.number="balance" required>
@@ -21,7 +20,9 @@
       :data="chartData"
       :options="chartOptions"/>
     </div>
-    <h2 v-if="resultMessage" v-html="resultMessage"></h2>
+    <div id="result-message" v-if="resultMessage">
+      <h2 v-html="resultMessage"></h2>
+    </div>
   </div>
 </template>
 
@@ -87,4 +88,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+#interactive-display-credit {
+  margin-top: 20px;
+}
+
+#result-message {
+  text-align: center;
+}
+
 </style>
