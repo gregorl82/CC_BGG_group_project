@@ -22,22 +22,24 @@ export default {
 <style lang="css" scoped>
 
 #fact-box {
-  width: 300px;
+  width: 400px;
+  height: auto;
   color: white;
   background-color: #4570AA;
-  margin: auto;
+  margin: 50px 0px 0px 770px;
 }
 
 #fact-heading {
   z-index: 1;
   top: 0;
+  height: 40px;
   padding-left: 10px;
   font-size: 25px;
   background-color: #1A2F4C;
 }
 
 #fact-text {
-  font-size: 20px;
+  font-size: 18px;
   padding-bottom: 25px;
   margin: auto;
   width: 75%;

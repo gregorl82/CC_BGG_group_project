@@ -63,8 +63,7 @@ export default {
     width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    cursor: pointer;
-    padding-top: 20px;
+    margin-top: 20px;
     transition: 0.4s ease all;
 }
 .accordion-header {
@@ -72,14 +71,18 @@ export default {
     height: 40px;
     color: white;
     background-color: #1A2F4C;
-    border-bottom: 3px solid #1A2F4C;
 }
+.active, .accordion-header:hover {
+  background-color: #4290C9;
+}
+
+.is-primary .accordion-header{
+  background-color: #4290C9;
+}
+
 .header-text {
   padding: 8px;
   font-size: 20px;
-}
-.body-text {
-
 }
 .accordion-body   {
     max-height: 200em;
@@ -89,8 +92,5 @@ export default {
 }
 .is-closed .accordion-body {
     max-height: 0;
-}
-.body-content {
-    padding: 20px;
 }
 </style>
