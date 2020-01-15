@@ -60,14 +60,14 @@ export default {
 
 <style lang="css" scoped>
 .accordion {
-    width: 1200px;
+    width: 1100px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     transition: 0.4s ease all;
 }
 .accordion-header {
-    width: 1200px;
+    width: 1100px;
     height: 40px;
     color: white;
     background-color: #1A2F4C;
