@@ -6,7 +6,7 @@
       </div>
       <div class="accordion-body">
           <interactive-display v-if="subtopic.heading == 'Savings calculator'"></interactive-display>
-          <interactive-display-credit v-if="subtopic.heading == 'Loan calculator'"></interactive-display-credit>
+          <interactive-display-credit v-if="subtopic.heading == 'Credit card repayment calculator'"></interactive-display-credit>
           <interactive-display-budget v-if="subtopic.heading == 'Budget calculator'"></interactive-display-budget>
         <div class="body-text">
           <p v-html="subtopic.text">{{subtopic.text}}</p>
@@ -60,14 +60,14 @@ export default {
 
 <style lang="css" scoped>
 .accordion {
-    width: 1100px;
+    width: 1200px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     transition: 0.4s ease all;
 }
 .accordion-header {
-    width: 1100px;
+    width: 1200px;
     height: 40px;
     color: white;
     background-color: #1A2F4C;
@@ -82,7 +82,7 @@ export default {
 
 .header-text {
   padding: 8px;
-  font-size: 20px;
+  font-size: 22px;
 }
 .accordion-body   {
     max-height: 200em;
@@ -92,5 +92,10 @@ export default {
 }
 .is-closed .accordion-body {
     max-height: 0;
+}
+
+.body-text {
+  font-size: 18px;
+  line-height: 1.8;
 }
 </style>

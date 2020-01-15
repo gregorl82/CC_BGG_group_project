@@ -86,4 +86,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+#summary-text, #submission-form {
+  text-align: center;
+}
+
 </style>

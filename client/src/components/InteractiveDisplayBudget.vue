@@ -1,8 +1,7 @@
 <template lang="html">
   <div id="interactive-display-budget">
     <div id="submission-form">
-      <h2>Monthly Budget Calculator</h2>
-      <p>Use this handy calculator to work out how much money you have left after each month.</p>
+      <p>Enter all of your spending values across different areas for the month, and your monthly earnings, and we'll show you how much you're spending in each area of life as well as how well you're sticking to your budget!</p>
       <form v-on:submit="handleSubmit">
         <h2>Income</h2>
         <h3>
@@ -254,5 +253,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+#budget-advice {
+  text-align: center;
+}
 
 </style>
