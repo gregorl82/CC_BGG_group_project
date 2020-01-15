@@ -15,7 +15,7 @@ export default {
 <style>
 #topic-title {
   width: 100%;
-  height: 100px;
+  height: 150px;
   position: inherit;
   z-index: 1;
   top: 0;
@@ -30,6 +30,6 @@ export default {
 }
 
 #topic-text {
-
+  font-size: 50px;
 }
 </style>
