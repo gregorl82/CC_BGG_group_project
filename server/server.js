@@ -23,13 +23,13 @@ MongoClient.connect('mongodb://localhost:27017')
   const creditRouter = createRouter(creditCollection);
   app.use('/api/credit', creditRouter);
 
-  const budgetCollection = db.collection('budget');
+  const budgetCollection = db.collection('budgeting');
   const budgetRouter = createRouter(budgetCollection);
-  app.use('/api/budget', budgetRouter);
+  app.use('/api/budgeting', budgetRouter);
 
-  const pensionCollection = db.collection('pension');
+  const pensionCollection = db.collection('pensions');
   const pensionRouter = createRouter(pensionCollection);
-  app.use('/api/pension', pensionRouter);
+  app.use('/api/pensions', pensionRouter);
 
   const travelCollection = db.collection('travel');
   const travelRouter = createRouter(travelCollection);

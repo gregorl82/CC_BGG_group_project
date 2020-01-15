@@ -2,7 +2,7 @@
   <div id="topic-list">
       <img src="bbc_logo.svg" width="200" id="logo">
       <h3 id="subtitle">FINANCE</h3>
-      <ul v-for="topic in topics" @click="handleSubmit(topic)" :class="toggleSelected" id="side-topic">{{ topic.topicHeading }}</ul>
+      <ul v-for="topic in topics" @click="handleSubmit(topic)" id="side-topic">{{ topic.topicHeading }}</ul>
   </div>
 </template>
 
@@ -11,22 +11,11 @@ import {eventBus} from '@/main.js'
 
 export default {
   name: 'sidebar',
-  data() {
-    return {
-      selected: false
-    }
-  },
   props: ['topics'],
   methods: {
     handleSubmit(topic) {
       eventBus.$emit('topic-clicked', topic.topicHeading)
       }
-  },
-  computed: {
-    toggleSelected() {
-      this.selected = !this.selected;
-      eventBus.$on('topic-clicked', (selected) => this.selected = true);
-    }
   }
 }
 </script>
@@ -70,9 +59,4 @@ export default {
 #side-topic:hover {
   background: #4290C9;
 }
-
- {
-  background: #4290C9;
-}
-
 </style>

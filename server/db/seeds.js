@@ -9,7 +9,7 @@ db.topics.insertMany(
     topicHeading: "Credit"
   },
   {
-    topicHeading: "Budget"
+    topicHeading: "Budgeting"
   },
   {
     topicHeading: "Travel"
@@ -55,7 +55,7 @@ db.credit.insertOne(
       ]
   });
 
-db.budget.insertOne(
+db.budgeting.insertOne(
   {
     subtopics: [
       {heading: "Introduction",
@@ -90,7 +90,7 @@ db.travel.insertOne(
     ]
   });
 
-  db.pension.insertOne(
+  db.pensions.insertOne(
     {
       subtopics: [
         {heading: "Introduction",
